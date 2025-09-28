@@ -6,7 +6,7 @@ function handleOpenMessage(req, res) {
 
     const message = messages[id - 1];
     if (!message) {
-        throw new Error("Could not find the message", 404);
+        throw new CustomError("Could not find the message", 404);
     }
     res.render("message", { message });
 }

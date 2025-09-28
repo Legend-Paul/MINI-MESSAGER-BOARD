@@ -1,6 +1,6 @@
 const express = require("express");
-const handleDisplayMessages = require("../middleware/handleDisplayMessages");
-const handleOpenMessage = require("../middleware/handleOpenMessage");
+const handleDisplayMessages = require("../controller/handleDisplayMessages");
+const handleOpenMessage = require("../controller/handleOpenMessage");
 
 const homeRouter = express.Router();
 

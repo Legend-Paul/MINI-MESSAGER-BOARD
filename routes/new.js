@@ -1,6 +1,6 @@
 const express = require("express");
-const handleCreateNewMessage = require("../middleware/handleCreateNewMessage");
-const handleFormSubmission = require("../middleware/handleFormSubmission");
+const handleCreateNewMessage = require("../controller/handleCreateNewMessage");
+const handleFormSubmission = require("../controller/handleFormSubmission");
 
 const newMessageRouter = express.Router();
 
