@@ -6,6 +6,8 @@ const newMessageRouter = require("./routes/new");
 const app = express();
 const PORT = 5000;
 
+app.use(express.urlencoded({ extended: true }));
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
