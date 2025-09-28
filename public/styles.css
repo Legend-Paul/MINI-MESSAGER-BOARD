@@ -1,0 +1,83 @@
+body {
+    background-color: #020111;
+    color: white;
+    padding: 3rem 1rem;
+    max-width: 1200rem;
+    margin: auto;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+
+    gap: 2rem;
+}
+a {
+    text-decoration: none;
+    padding: 0.125rem 0.5rem;
+    border-radius: 0.25rem;
+}
+.message {
+    padding: 1rem 0;
+    background-color: #04023f;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+
+    & > * {
+        padding: 0 1rem;
+    }
+    .bottom {
+        border-top: 2px solid wheat;
+    }
+    a {
+        background-color: orange;
+    }
+}
+
+section {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.message-section {
+    max-width: 1200rem;
+    margin: auto;
+}
+
+.form-section {
+    max-width: 30rem;
+    margin: auto;
+    form {
+        .input-container {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            input,
+            textarea {
+                padding: 0.25rem;
+            }
+
+            input {
+                height: 1.5rem;
+            }
+        }
+    }
+}
+
+button {
+    background-color: #26e70c;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    .back {
+        background-color: red;
+        a {
+            color: white;
+        }
+    }
+}

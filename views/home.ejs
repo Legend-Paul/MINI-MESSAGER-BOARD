@@ -4,18 +4,19 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>MINI MESSAGER BOARD</title>
+        <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
         <main>
             <a href="/new">
-                <button>New</button>
+                <button>Add New Message</button>
             </a>
             <section>
                 <%messages.forEach((message, i)=>{%>
-                <div>
+                <div class="message">
                     <h3><%= message.user %></h3>
                     <p><%= message.text %></p>
-                    <div>
+                    <div class="bottom">
                         <p><%= message.added %></p>
                         <a href="/<%=i+1%>">Open</a>
                     </div>

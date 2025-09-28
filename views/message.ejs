@@ -1,8 +1,22 @@
-<div>
-    <h3><%= message.user %></h3>
-    <p><%= message.text %></p>
-    <div>
-        <p><%= message.added %></p>
-        <a href="/">Close</a>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MINI MESSAGER BOARD</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <section class="message-section">
+            <div class="message">
+            <h3><%= message.user %></h3>
+            <p><%= message.text %></p>
+            <div class="bottom">
+                <p><%= message.added %></p>
+                <a href="/">Close</a>
+            </div>
+        </section>
+        
+        </div>
+    </body>
+</html>
