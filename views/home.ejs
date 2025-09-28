@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MINI MESSAGER BOARD</title>
+    </head>
+    <body>
+        <main>
+            <a href="/new">
+                <button>New</button>
+            </a>
+            <section>
+                <%messages.forEach((message, i)=>{%>
+                <div>
+                    <h3><%= message.user %></h3>
+                    <p><%= message.text %></p>
+                    <div>
+                        <p><%= message.added %></p>
+                        <a href="/<%=i+1%>">Open</a>
+                    </div>
+                </div>
+
+                <% }) %>
+            </section>
+        </main>
+    </body>
+</html>
