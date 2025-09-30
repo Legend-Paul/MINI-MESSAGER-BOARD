@@ -27,9 +27,23 @@ a {
     }
     .bottom {
         border-top: 2px solid wheat;
-    }
-    a {
-        background-color: orange;
+        .link-btns {
+            display: flex;
+            justify-content: space-between;
+            .close {
+                background-color: orange;
+            }
+            .modify-btns {
+                display: flex;
+                gap: 2rem;
+            }
+            .delete {
+                background-color: red;
+            }
+            .edit {
+                background-color: green;
+            }
+        }
     }
 }
 

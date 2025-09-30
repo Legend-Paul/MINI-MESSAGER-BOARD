@@ -8,6 +8,12 @@ const pool = require("./db/pool");
 const app = express();
 const PORT = 5000;
 
+// pool.connect((err, client, release) => {
+//     if (err) throw err;
+//     console.log("Conected to database");
+//     release();
+// });
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
