@@ -14,6 +14,8 @@
                     <label for="user">User</label>
                     <input type="text" name="user" , id="user" required />
                 </div>
+                <%- include("partials/formError.ejs", {errors: locals.errors ||
+                [], fieldName: "user"}) %>
                 <div class="input-container text-container">
                     <label for="text">Message</label>
                     <textarea
@@ -23,6 +25,8 @@
                         rows="8"
                         required
                     ></textarea>
+                    <%- include("partials/formError.ejs", {errors: locals.errors
+                    || [], fieldName: "text"}) %>
                 </div>
                 <div class="buttons">
                     <button type="submit">Submit Message</button>
