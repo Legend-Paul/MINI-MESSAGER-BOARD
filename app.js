@@ -3,6 +3,7 @@ const path = require("node:path");
 const homeRouter = require("./routes/Home");
 const newMessageRouter = require("./routes/new");
 const handleError = require("./controller/handleError");
+const pool = require("./db/pool");
 
 const app = express();
 const PORT = 5000;
