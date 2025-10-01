@@ -24,7 +24,7 @@ const submitMessage = [
 ];
 
 function createMessage(req, res) {
-    res.render("new");
+    res.render("new", { action: "/new" });
 }
 
 module.exports = { createMessage, submitMessage };

@@ -12,20 +12,36 @@
             <h3><%= message.user %></h3>
             <p><%= message.text %></p>
             <div class="bottom">
-                <p><%= message.added %></p>
+                <p class="date"><%= message.added_date %></p>
                 <div class="link-btns">
                     <a class="close" href="/">Close</a>
                     <div class="modify-btns">
-                        <button class="delete" data-id="<%=id%>">Delete</button>
-                        <button class="edit" data-id="<%=id%>">Edit</button>
-                        <!-- <a class="delete"href="/delet/<%=id%>">Delete</a>
-                        <a class="edit"href="/edit/<%=id%>">Edit</a> -->
-                    </div>
+                        <button class="delete" data-id="<%=message.id%>">Delete</button>
+                        <a class="edit" href="/edit/<%=message.id%>">Edit</a>                    </div>
                 </div>
             </div>
         </section>
         
         </div>
-        
+        <script>
+            async function changeRoute(id, method){
+                try {
+                    await fetch(`/delete/${id}`,  {
+                        method:method
+                    })
+                }catch (err) {
+                    throw err
+                }
+            }
+            document.querySelector(".delete")
+            .addEventListener("click", async (e)=>{
+                console.log("clicked")
+                const id = e.target.dataset.id;
+                console.log(id)
+                await changeRoute(id, "DELETE")
+                window.location.href = "/";
+            })
+            
+        </script>
     </body>
 </html>

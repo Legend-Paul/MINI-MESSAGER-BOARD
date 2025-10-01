@@ -17,8 +17,8 @@
                     <h3><%= message.user %></h3>
                     <p><%= message.text %></p>
                     <div class="bottom">
-                        <p><%= message.added %></p>
-                        <a href="/<%=i+1%>">Open</a>
+                        <p class="date"><%= message.added_date %></p>
+                        <a href="/<%=message.id%>">Open</a>
                     </div>
                 </div>
 

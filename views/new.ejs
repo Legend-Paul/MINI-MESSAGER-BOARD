@@ -4,31 +4,38 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>MINI MESSAGER BOARD</title>
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="/styles.css" />
     </head>
     <body>
         <section class="form-section">
-            <form action="/new" , method="POST">
+            <form
+                action="<%= locals.message ? '/edit/' + message.id : '/new' %>"
+                method="POST"
+            >
                 <div class="input-container user-container">
                     <label for="user">User</label>
-                    <input type="text" name="user" , id="user" required />
+                    <input
+                        type="text"
+                        name="user"
+                        id="user"
+                        required
+                        value="<%= locals.message ? message.user : '' %>"
+                    />
                 </div>
                 <%- include("partials/formError.ejs", {errors: locals.errors ||
                 [], fieldName: "user"}) %>
                 <div class="input-container text-container">
                     <label for="text">Message</label>
-                    <textarea
-                        name="text"
-                        id="text"
-                        cols="50"
-                        rows="8"
-                        required
-                    ></textarea>
+                    <textarea name="text" id="text" cols="50" rows="8" required>
+<%= locals.message ? message.text : '' %></textarea
+                    >
                     <%- include("partials/formError.ejs", {errors: locals.errors
                     || [], fieldName: "text"}) %>
                 </div>
                 <div class="buttons">
-                    <button type="submit">Submit Message</button>
+                    <button type="submit">
+                        <%=locals.message?"Update":"Submit" %> Message
+                    </button>
                     <button class="back" type="button">
                         <a href="/">Back To Home</a>
                     </button>

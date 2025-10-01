@@ -21,7 +21,7 @@ async function deleteMessage(id) {
 }
 async function updateMessage(id, user, text, date) {
     await pool.query(
-        'UPDATE users SET "user" = $1, text = $2, date = $3 WHERE id = $4',
+        'UPDATE users SET "user" = $1, text = $2, added_date = $3 WHERE id = $4',
         [user, text, date, id]
     );
 }

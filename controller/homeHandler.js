@@ -1,4 +1,3 @@
-const messages = require("../data");
 const query = require("../db/query");
 const CustomError = require("../error/CustomError");
 
@@ -33,8 +32,28 @@ async function handleDeleteMessage(req, res) {
     res.redirect("/");
 }
 
+function handleGetEditMessage(req, res) {
+    const { id } = req.params;
+    query.getMessage(id).then(result => {
+        const message = result.rows[0];
+        res.render("new", { message });
+    }).catch(() => {
+        res.render("new", { message: null });
+    });
+}
+
+async function handlePostEditMessage(req, res) {
+    const { id } = req.params;
+    const { user, text } = req.body;
+    const date = new Date();
+    console.log("Updating message", id);
+    await query.updateMessage(id, user, text, date);
+    res.redirect("/");
+}
 module.exports = {
     handleOpenMessage,
     handleDisplayMessages,
     handleDeleteMessage,
+    handleGetEditMessage,
+    handlePostEditMessage,
 };
