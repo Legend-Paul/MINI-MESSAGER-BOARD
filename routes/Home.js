@@ -1,10 +1,10 @@
 const express = require("express");
-const handleDisplayMessages = require("../controller/handleDisplayMessages");
-const handleOpenMessage = require("../controller/handleOpenMessage");
-
+const homeHandler = require("../controller/homeHandler");
 const homeRouter = express.Router();
 
-homeRouter.get("/", handleDisplayMessages);
-homeRouter.get("/:id", handleOpenMessage);
+homeRouter.get("/", homeHandler.handleDisplayMessages);
+homeRouter.get("/:id", homeHandler.handleOpenMessage);
+homeRouter.delete("/delete/:id", homeHandler.handleDeleteMessage);
+// homeRouter.put("/edit/:id", handleOpenMessage);
 
 module.exports = homeRouter;

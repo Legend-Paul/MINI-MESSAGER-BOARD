@@ -1,10 +1,9 @@
 const express = require("express");
-const handleCreateNewMessage = require("../controller/handleCreateNewMessage");
-const handleFormSubmission = require("../controller/handleFormSubmission");
+const handleNewMessage = require("../controller/handleNewMessage");
 
 const newMessageRouter = express.Router();
 
-newMessageRouter.get("/", handleCreateNewMessage);
-newMessageRouter.post("/", handleFormSubmission);
+newMessageRouter.get("/", handleNewMessage.createMessage);
+newMessageRouter.post("/", handleNewMessage.submitMessage);
 
 module.exports = newMessageRouter;

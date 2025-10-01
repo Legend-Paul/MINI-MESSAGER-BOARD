@@ -1,14 +1,13 @@
 body {
     background-color: #020111;
     color: white;
-    padding: 3rem 1rem;
-    max-width: 1200rem;
+    padding: 3rem 2rem;
+    max-width: 1200px;
     margin: auto;
 }
 
 main {
     display: grid;
-    justify-content: center;
 
     gap: 2rem;
 }
@@ -17,22 +16,33 @@ a {
     padding: 0.125rem 0.5rem;
     border-radius: 0.25rem;
 }
+section {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.messages {
+    display: grid;
+    gap: 1.5rem;
+    width: 100%;
+}
 .message {
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     background-color: #04023f;
     box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
-
+    border-radius: 1.5rem;
+    h3 {
+        margin: 0;
+    }
     & > * {
-        padding: 0 1rem;
+        padding: 0 1.5rem;
     }
     .bottom {
         border-top: 2px solid wheat;
         .link-btns {
             display: flex;
             justify-content: space-between;
-            .close {
-                background-color: orange;
-            }
+
             .modify-btns {
                 display: flex;
                 gap: 2rem;
@@ -44,12 +54,12 @@ a {
                 background-color: green;
             }
         }
+        a {
+            background-color: orange;
+            display: flex;
+            align-items: center;
+        }
     }
-}
-
-section {
-    display: grid;
-    gap: 1.5rem;
 }
 
 .message-section {
