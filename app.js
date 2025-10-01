@@ -6,13 +6,7 @@ const handleError = require("./controller/handleError");
 const pool = require("./db/pool");
 
 const app = express();
-const PORT = 5000;
-
-// pool.connect((err, client, release) => {
-//     if (err) throw err;
-//     console.log("Conected to database");
-//     release();
-// });
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -22,12 +16,6 @@ app.set("view engine", "ejs");
 
 app.use("/new", newMessageRouter);
 app.use("/", homeRouter);
-
-// app.use((err, req, res, next) => {
-//     const { message, statusCode } = err;
-//     console.log(message);
-//     res.status(500).send("error");
-// });
 
 app.use(handleError);
 
