@@ -19,6 +19,9 @@ async function insertMessage(user, text, date) {
 async function deleteMessage(id) {
     await pool.query("DELETE FROM users WHERE id = $1", [id]);
 }
+async function deleteAllMessage() {
+    await pool.query("DELETE FROM users");
+}
 async function updateMessage(id, user, text, date) {
     await pool.query(
         'UPDATE users SET "user" = $1, text = $2, added_date = $3 WHERE id = $4',
@@ -28,6 +31,7 @@ async function updateMessage(id, user, text, date) {
 
 module.exports = {
     getAllMessages,
+    deleteAllMessage,
     getMessage,
     insertMessage,
     deleteMessage,

@@ -1,3 +1,4 @@
+const ConnectionParameters = require("pg/lib/connection-parameters");
 const query = require("../db/query");
 const CustomError = require("../error/CustomError");
 
@@ -26,7 +27,6 @@ async function handleDisplayMessages(req, res) {
 }
 
 async function handleDeleteMessage(req, res) {
-    console.log("deleting message");
     const { id } = req.params;
     await query.deleteMessage(id);
     res.redirect("/");
@@ -34,19 +34,21 @@ async function handleDeleteMessage(req, res) {
 
 function handleGetEditMessage(req, res) {
     const { id } = req.params;
-    query.getMessage(id).then(result => {
-        const message = result.rows[0];
-        res.render("new", { message });
-    }).catch(() => {
-        res.render("new", { message: null });
-    });
+    query
+        .getMessage(id)
+        .then((result) => {
+            const message = result.rows[0];
+            res.render("new", { message });
+        })
+        .catch(() => {
+            res.render("new", { message: null });
+        });
 }
 
 async function handlePostEditMessage(req, res) {
     const { id } = req.params;
     const { user, text } = req.body;
     const date = new Date();
-    console.log("Updating message", id);
     await query.updateMessage(id, user, text, date);
     res.redirect("/");
 }
